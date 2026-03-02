@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sümeyra | Projelerim</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+
+<header class="hero">
+  <h1 class="baslik">SÜMEYRA GÜVELİOĞLU KARATAY</h1>
+  <p class="subtitle">Şehir Plancısı · CBS Uzman Yardımcısı</p>
+
+  <nav class="menu">
+    <a href="index.html">Hakkımda</a>
+    <a class="active" href="projelerim.html">Projelerim</a>
+    <a href="iletisim.html">İletişim</a>
+  </nav>
+</header>
+
+<main class="container">
+  <div class="page-layout">
+
+    <!-- SOL: Proje açıklamaları (bullet) -->
+    <section class="card fade-in page-left">
+      <h2>Projeler</h2>
+      <p class="hint">Çalışma alanları harita üzerinde gösterilmektedir.</p>
+
+      <ul class="project-ul">
+       <li>
+  <div class="project-title">
+    <strong>Ocak 2021 – Aralık 2021</strong>
+    Sürdürülebilir Şehirler Projesi – Seçili Büyükşehir Belediyeleri (Balıkesir, Ordu, Malatya, Kahramanmaraş, Van, Mardin)
+  </div>
+
+  <div class="project-role">
+    <span>Sorumluluklar:</span>
+    Arazi kullanımı (kentsel doku, kentsel form ve kentsel gelişim analizi ile imar planı kararlarının incelenmesi), dirençlilik (afet riski ve kentsel dönüşüm), Akıllı Şehirler, Kentsel Tasarım ve Kamusal Alan temalarında üretilen göstergeler ve analizlerle kentlerin problemlerinin tespit edilmesi, ihtiyaç değerlendirmesi yapılması ve eylem paketlerinin oluşturulması. Proje kapsamındaki tüm analizler (tematik haritalar, yer seçimi analizleri, ağ analizleri vb.) QGIS ve ArcGIS yazılımları kullanılarak gerçekleştirilmiştir.
+  </div>
+</li>
+
+        <li>
+  <div class="project-title">
+    <strong>2021 – 2022</strong>
+    Tacikistan Ulusal Afet Risk Yönetimi Projesi – Kapasite Güçlendirme (Asya Kalkınma Bankası)
+  </div>
+
+  <div class="project-role">
+    <span>Sorumluluklar:</span>
+    Afet risk yönetimi kapsamında üç bileşenden oluşan sistem tasarımının geliştirilmesi; ulusal tehlike ve afet yönetimi için gerekli verilerin sistematik olarak toplanması ve analiz edilmesi; mevcut veriler doğrultusunda kapsamlı risk profilinin oluşturulması ve verilerin standardizasyonu. Karar verme ve müdahale süreçleri için afet senaryoları ve model çerçevesinin geliştirilmesi. Sistem gereklilikleri (donanım, yazılım ve veri tabanı altyapısı) değerlendirilmiş; SQL, PostGIS ve PostgreSQL ile çalışmalar gerçekleştirilmiştir.
+  </div>
+</li>
+
+<li>
+  <div class="project-title">
+    <strong>Mart 2022 – Kasım 2022</strong>
+    Aliağa Limanları Arka Alanı Ulaşım ve Lojistik Etüdü ile Müdahale Perspektifi (İZKA)
+  </div>
+
+  <div class="project-role">
+    <span>Sorumluluklar:</span>
+    1/100.000 ölçekli çevre düzeni planı, 1/25.000 ve 1/5.000 ölçekli nazım imar planları ile 1/1.000 ölçekli uygulama imar planlarının bölgeye yönelik karar ve fonksiyonlarının mevcut durum ve ihtiyaçlar doğrultusunda değerlendirilmesi. Önerilen kullanım kararlarının büyüklükleri ve stratejik konumlarının yeniden ele alınması. CBS (QGIS, ArcGIS) ve PTV Vissim kullanılarak mekânsal ve ulaşım analizlerinin yapılması; trafik sayımları ve saha tespitlerine dayalı senaryo üretimi ve fayda-maliyet analizlerinin gerçekleştirilmesi. Mevcut durum raporu İZKA tarafından yayımlanmıştır.
+  </div>
+</li>
+
+ <li>
+  <div class="project-title">
+    <strong>Temmuz 2022 – Kasım 2022</strong>
+    İzmir Bölgesi Mekânsal Gelişme Dinamiklerinin Analizi: Kentleşme ve Yerleşmeler Sistemi Bileşeni (İZKA)
+  </div>
+
+  <div class="project-role">
+    <span>Sorumluluklar:</span>
+    Bölgesel dinamiklerin küresel eğilimler (kentleşme, kıyısallaşma, demografi ve göç) çerçevesinde değerlendirilmesi; mevcut durum analizlerinin oluşturulması; bölge yerleşme yapısının ve arazi kullanımının kentsel doku ile birlikte incelenmesi. Konut ve barınma sorunlarının tespiti; İzmir’de uygulanmış ve planlanan kentsel dönüşüm projelerinin yaşam kalitesi, arazi kullanımı ve dirençlilik kapsamında değerlendirilmesi; mevcut durum doğrultusunda bölgenin geleceğe yönelik öncelikli stratejilerinin belirlenmesi.
+  </div>
+</li>
+      </ul>
+    </section>
+
+    <!-- SAĞ: Harita + kartlar -->
+    <section class="card slide-up page-right">
+      <h2>Proje Haritası</h2>
+
+      <div class="projects-layout">
+        <aside class="projects-panel">
+          <p class="hint">Kartlar ilgili proje bilgisine yönlendirir.</p>
+          <div id="projectList" class="project-list"></div>
+        </aside>
+
+        <div class="projects-map">
+          <div id="map"></div>
+        </div>
+      </div>
+
+      <p class="hint">Not: Polygonlar ödev kapsamında yaklaşık alanlar olarak temsil edilmiştir.</p>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <small>© 2026 Sümeyra Güvelioğlu Karatay</small>
+</footer>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  // Harita
+  const map = L.map('map', { zoomControl: true }).setView([39.2, 35.0], 6);
+
+// 🗺️ Standart Harita
+const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap contributors'
+});
+
+// 🛰️ Satellite (Esri)
+const satellite = L.tileLayer(
+  'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  {
+    attribution: 'Tiles © Esri'
+  }
+);
+
+// Varsayılan olarak OSM açılsın
+satellite.addTo(map);
+
+// Katman kontrolü ekle
+L.control.layers(
+  {
+    "Standart Harita": osm,
+    "Uydu Görünümü": satellite
+  }
+).addTo(map);
+
+  // Proje verisi (yaklaşık polygonlar) + açıklamalar
+  const projectsGeoJSON = {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "tjk",
+          "name": "Ulusal Afet Risk Yönetimi (Tacikistan)",
+          "dates": "2021 – 2022",
+          "category": "risk",
+          "typeLabel": "Afet / Risk Yönetimi",
+          "desc": "Kapasite geliştirme odaklı risk azaltımı ve doğal tehlike yönetimi çalışmaları."
+        },
+        "geometry": { "type": "Polygon", "coordinates": [[
+          [68.55, 38.35],[69.25, 38.35],[69.25, 38.95],[68.55, 38.95],[68.55, 38.35]
+        ]]}
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "aliaga",
+          "name": "Ulaşım & Lojistik Etüdü (İzmir / Aliağa)",
+          "dates": "Mart 2022 – Kasım 2022",
+          "category": "transport",
+          "typeLabel": "Ulaşım / Lojistik",
+          "desc": "Liman arka alanı ulaşım-lojistik akışlarının analizi ve müdahale perspektifi."
+        },
+        "geometry": { "type": "Polygon", "coordinates": [[
+          [26.80, 38.60],[27.35, 38.60],[27.35, 39.10],[26.80, 39.10],[26.80, 38.60]
+        ]]}
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "izmirplan",
+          "name": "İzmir Bölgesi Mekânsal Gelişme Dinamikleri Analizi",
+          "dates": "Temmuz 2022 – Kasım 2022",
+          "category": "planning",
+          "typeLabel": "Mekânsal Planlama",
+          "desc": "Kentleşme ve yerleşmeler sistemi bileşeni kapsamında mekânsal dinamiklerin değerlendirilmesi."
+        },
+        "geometry": { "type": "Polygon", "coordinates": [[
+          [27.00, 37.90],[27.80, 37.90],[27.80, 38.55],[27.00, 38.55],[27.00, 37.90]
+        ]]}
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "balikesir",
+          "name": "Sürdürülebilir Şehirler Projesi (Balıkesir)",
+          "dates": "Ocak 2021 – Aralık 2021",
+          "category": "smartcity",
+          "typeLabel": "Sürdürülebilir Şehirler",
+          "desc": "Mevcut durum tespiti ve planlama-yönetim sistemleri değerlendirmesi (Dünya Bankası & AB)."
+        },
+        "geometry": { "type": "Polygon", "coordinates": [[
+          [26.60, 39.20],[28.10, 39.20],[28.10, 40.40],[26.60, 40.40],[26.60, 39.20]
+        ]]}
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "ordu",
+          "name": "Sürdürülebilir Şehirler Projesi (Ordu)",
+          "dates": "Ocak 2021 – Aralık 2021",
+          "category": "smartcity",
+          "typeLabel": "Sürdürülebilir Şehirler",
+          "desc": "Mevcut durum tespiti ve göstergeler üzerinden değerlendirme (Dünya Bankası & AB)."
+        },
+        "geometry": { "type": "Polygon", "coordinates": [[
+          [36.90, 40.70],[38.10, 40.70],[38.10, 41.30],[36.90, 41.30],[36.90, 40.70]
+        ]]}
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "malatya",
+          "name": "Sürdürülebilir Şehirler Projesi (Malatya)",
+          "dates": "Ocak 2021 – Aralık 2021",
+          "category": "smartcity",
+          "typeLabel": "Sürdürülebilir Şehirler",
+          "desc": "Kentsel sistemlerin mevcut durumu ve planlama yaklaşımlarının analizi (Dünya Bankası & AB)."
+        },
+        "geometry": { "type": "Polygon", "coordinates": [[
+          [37.20, 38.10],[38.90, 38.10],[38.90, 38.80],[37.20, 38.80],[37.20, 38.10]
+        ]]}
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "maras",
+          "name": "Sürdürülebilir Şehirler Projesi (Kahramanmaraş)",
+          "dates": "Ocak 2021 – Aralık 2021",
+          "category": "smartcity",
+          "typeLabel": "Sürdürülebilir Şehirler",
+          "desc": "Mevcut durum tespiti ve yönetim sistemleri değerlendirmesi (Dünya Bankası & AB)."
+        },
+        "geometry": { "type": "Polygon", "coordinates": [[
+          [36.30, 37.20],[37.80, 37.20],[37.80, 38.10],[36.30, 38.10],[36.30, 37.20]
+        ]]}
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "van",
+          "name": "Sürdürülebilir Şehirler Projesi (Van)",
+          "dates": "Ocak 2021 – Aralık 2021",
+          "category": "smartcity",
+          "typeLabel": "Sürdürülebilir Şehirler",
+          "desc": "Planlama ve yönetim sistemlerinin mevcut durum analizi (Dünya Bankası & AB)."
+        },
+        "geometry": { "type": "Polygon", "coordinates": [[
+          [42.20, 37.30],[44.00, 37.30],[44.00, 38.10],[42.20, 38.10],[42.20, 37.30]
+        ]]}
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "mardin",
+          "name": "Sürdürülebilir Şehirler Projesi (Mardin)",
+          "dates": "Ocak 2021 – Aralık 2021",
+          "category": "smartcity",
+          "typeLabel": "Sürdürülebilir Şehirler",
+          "desc": "Mevcut durum tespiti ve göstergeler ile değerlendirme (Dünya Bankası & AB)."
+        },
+        "geometry": { "type": "Polygon", "coordinates": [[
+          [40.70, 37.00],[42.20, 37.00],[42.20, 37.60],[40.70, 37.60],[40.70, 37.00]
+        ]]}
+      }
+    ]
+  };
+
+  // Renk
+  function getColor(category) {
+    switch(category) {
+      case "smartcity": return "#2563eb";
+      case "transport": return "#16a34a";
+      case "risk":      return "#dc2626";
+      case "planning":  return "#f59e0b";
+      default:          return "#7c3aed";
+    }
+  }
+
+  function styleFeature(feature) {
+    return {
+      color: getColor(feature.properties.category),
+      weight: 2,
+      opacity: 0.95,
+      fillOpacity: 0.10
+    };
+  }
+
+  // Popup (şık)
+  function popupHTML(p){
+    return `
+      <div class="pp">
+        <div class="pp-top">
+          <span class="pp-badge" style="background:${getColor(p.category)}22; border-color:${getColor(p.category)}55;">
+            ${p.typeLabel || "Proje"}
+          </span>
+          <span class="pp-date">${p.dates || ""}</span>
+        </div>
+        <div class="pp-title">${p.name || ""}</div>
+        <div class="pp-desc">${p.desc || ""}</div>
+      </div>
+    `;
+  }
+
+  // Layer eşleştirme + etkileşim
+  const layerById = new Map();
+  let geojsonLayer;
+
+  function onEachFeature(feature, layer) {
+    const p = feature.properties;
+    layerById.set(p.id, layer);
+
+    layer.on({
+      mouseover: (e) => e.target.setStyle({ weight: 3, fillOpacity: 0.35 }),
+      mouseout:  (e) => geojsonLayer.resetStyle(e.target),
+      click:     () => layer.bindPopup(popupHTML(p)).openPopup()
+    });
+  }
+
+  geojsonLayer = L.geoJSON(projectsGeoJSON, { style: styleFeature, onEachFeature }).addTo(map);
+  map.fitBounds(geojsonLayer.getBounds(), { padding: [20, 20] });
+
+  // Polygonlara sırayla fade-in
+  const layers = [];
+  geojsonLayer.eachLayer(l => layers.push(l));
+  layers.forEach((l, i) => setTimeout(() => l.setStyle({ fillOpacity: 0.25 }), 120 * i));
+
+  // Sol liste
+  const projectList = document.getElementById("projectList");
+
+  function makeCard(p){
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "pitem";
+    btn.innerHTML = `
+      <div class="pitem-head">
+        <span class="dot" style="background:${getColor(p.category)}"></span>
+        <div class="pitem-title">${p.name}</div>
+      </div>
+      <div class="pitem-meta">
+        <span class="tag">${p.typeLabel}</span>
+        <span class="date">${p.dates}</span>
+      </div>
+      <div class="pitem-desc">${p.desc}</div>
+    `;
+
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".pitem").forEach(x => x.classList.remove("active"));
+      btn.classList.add("active");
+
+      const layer = layerById.get(p.id);
+      if (!layer) return;
+
+      map.fitBounds(layer.getBounds(), { padding: [40, 40] });
+      layer.bindPopup(popupHTML(p)).openPopup();
+
+      layers.forEach(l => geojsonLayer.resetStyle(l));
+      layer.setStyle({ weight: 4, fillOpacity: 0.38 });
+    });
+
+    return btn;
+  }
+
+  projectsGeoJSON.features.forEach(f => projectList.appendChild(makeCard(f.properties)));
+
+  // İlk kartı otomatik seç
+  const first = projectList.querySelector(".pitem");
+  if (first) first.click();
+
+  // Legend
+  const legend = L.control({ position: 'bottomright' });
+  legend.onAdd = function() {
+    const div = L.DomUtil.create('div', 'legend');
+    div.innerHTML = `
+      <strong>Proje Türü</strong>
+      <div class="row"><span class="swatch" style="background:${getColor('smartcity')}"></span> Sürdürülebilir Şehirler</div>
+      <div class="row"><span class="swatch" style="background:${getColor('transport')}"></span> Ulaşım / Lojistik</div>
+      <div class="row"><span class="swatch" style="background:${getColor('planning')}"></span> Mekânsal Planlama</div>
+      <div class="row"><span class="swatch" style="background:${getColor('risk')}"></span> Afet / Risk Yönetimi</div>
+    `;
+    return div;
+  };
+  legend.addTo(map);
+</script>
+
+</body>
+</html>

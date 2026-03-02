@@ -1,0 +1,775 @@
+:root{
+  --bg:#f9f5f2;
+  --card:#ffffff;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --accent:#c2410c;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family: 'Source Sans 3', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+ line-height: 1.65;
+  letter-spacing: 0.2px;
+}
+
+.hero{
+  padding: 40px 16px 18px;
+  text-align:center;
+
+  background-image: url("hero-bg.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.baslik{
+  margin:0;
+  letter-spacing: .5px;
+  animation: glow 2.6s infinite;
+}
+
+.subtitle{
+  margin:10px 0 0;
+  color: var(--muted);
+}
+
+.menu{
+  margin-top: 16px;
+}
+
+.menu a{
+  display:inline-block;
+  margin: 6px;
+  padding: 10px 14px;
+  text-decoration:none;
+  color: var(--text);
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, white);
+  transition: transform .2s, background .2s;
+}
+
+.menu a:hover{
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--accent) 15%, white);
+}
+
+.menu a.active{
+  background: color-mix(in srgb, var(--accent) 25%, white);
+  border-color: var(--accent);
+  font-weight:bold;
+}
+
+.container{
+  width: min(1400px, 95%);
+  margin: 18px auto 40px;
+}
+
+.card{
+  background: var(--card);
+  padding: 18px 18px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  margin: 14px 0;
+  box-shadow: 0 10px 25px rgba(0,0,0,.04);
+}
+
+.fade-in{ animation: fadeIn .9s ease both; }
+.slide-up{ animation: slideUp .9s ease both; }
+.pulse{ animation: pulse 2.2s infinite; }
+
+#map{
+  height: 440px;
+  width: 100%;
+  border-radius: 12px;
+  overflow:hidden;
+  border: 1px solid #e5e7eb;
+}
+
+.hint{
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.footer{
+  text-align:center;
+  padding: 18px;
+  color: var(--muted);
+}
+
+/* Legend */
+.legend{
+  background: white;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 25px rgba(0,0,0,.06);
+  font-size: 13px;
+  line-height: 1.35;
+}
+.legend .row{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin: 6px 0;
+}
+.legend .swatch{
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,.12);
+}
+
+@keyframes glow{
+  0%{ text-shadow: 0 0 0 rgba(37,99,235,0); }
+  50%{ text-shadow: 0 0 18px rgba(37,99,235,.35); }
+  100%{ text-shadow: 0 0 0 rgba(37,99,235,0); }
+}
+
+@keyframes fadeIn{
+  from{ opacity:0; transform: translateY(6px); }
+  to{ opacity:1; transform: translateY(0); }
+}
+
+@keyframes slideUp{
+  from{ opacity:0; transform: translateY(18px); }
+  to{ opacity:1; transform: translateY(0); }
+}
+
+@keyframes pulse{
+  0%, 100%{ transform: scale(1); }
+  50%{ transform: scale(1.01); }
+}
+
+
+
+/* Başlıkları biraz daha düzenli göstermek için */
+.section-title{
+  margin-top: 0;
+}
+
+/* (3) Kart içindeki listeleri modernleştir */
+.card ul{
+  list-style: none;
+  padding-left: 0;
+  margin: 10px 0 0;
+}
+
+.card li{
+  padding: 10px 12px;
+  margin: 8px 0;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+/* (4) CTA butonları */
+.cta{
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn{
+  display:inline-block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  text-decoration:none;
+  background: var(--accent);
+  color: white;
+  font-weight: bold;
+  border: 1px solid rgba(0,0,0,.0);
+  transition: transform .15s, opacity .15s;
+}
+
+.btn:hover{
+  transform: translateY(-1px);
+  opacity: .95;
+}
+
+.btn.ghost{
+  background: transparent;
+  color: var(--text);
+  border: 1px solid #dbeafe;
+}
+
+/* İlgi Alanları: ikonlu kutucuklar */
+.icon-grid{
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.icon-card{
+  padding: 14px 12px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  text-align: center;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.icon-card:hover{
+  transform: scale(1.05);
+  box-shadow: 0 14px 25px rgba(0,0,0,.1);
+}
+
+.icon-card .icon{
+  font-size: 34px;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.icon-card .label{
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text);
+}
+
+/* Mobilde 3 sütun sıkışır: 2 sütuna düşürelim */
+@media (max-width: 650px){
+  .icon-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@keyframes floatTitle {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+.baslik {
+  animation: floatTitle 3s ease-in-out infinite;
+}
+
+.card{
+  animation: fadeInUp .8s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp{
+  from{
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* İlgi Alanları kartları artık button: border ve cursor */
+.icon-card{
+  cursor: pointer;
+  width: 100%;
+  text-decoration: none;
+  color: var(--text);
+}
+
+/* TIKLANINCA seçili kalsın (JS bu class'ı ekleyecek) */
+.icon-card.active{
+  border-color: rgba(37,99,235,.55);
+  box-shadow: 0 16px 30px rgba(37,99,235,.12);
+  transform: scale(1.03);
+}
+
+/* MODAL */
+.modal{
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+}
+
+.modal.open{
+  display: block;
+}
+
+.modal-backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  animation: modalFade .2s ease both;
+}
+
+.modal-panel{
+  position: relative;
+  width: min(760px, 92%);
+  margin: 6vh auto 0;
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 20px 60px rgba(0,0,0,.22);
+  padding: 18px 18px 16px;
+
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.modal-close{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  border-radius: 10px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.modal-title{
+  margin: 6px 0 12px;
+}
+
+.modal-img{
+  width: 100%;
+  max-height: 60vh;       /* ekranın %60'ı kadar */
+  object-fit: contain;    /* kırpma yok */
+  background: #f3f4f6;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+}
+
+.modal-text{
+  color: var(--text);
+  line-height: 1.6;
+  margin: 12px 2px 2px;
+}
+
+@keyframes modalFade{
+  from{ opacity: 0; }
+  to{ opacity: 1; }
+}
+
+@keyframes modalPop{
+  from{ opacity: 0; transform: translateY(10px) scale(.98); }
+  to{ opacity: 1; transform: translateY(0) scale(1); }
+}
+
+
+/* Projelerim: sol liste + sağ harita */
+.projects-layout{
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.projects-panel{
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #ffffff;
+  padding: 12px;
+}
+
+.project-list{
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Proje kartı */
+.pitem{
+  width: 100%;
+  text-align: left;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 12px;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  animation: fadeInUp .5s ease both;
+}
+
+.pitem:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 14px 25px rgba(0,0,0,.08);
+}
+
+.pitem.active{
+  border-color: rgba(37,99,235,.45);
+  box-shadow: 0 16px 30px rgba(37,99,235,.10);
+}
+
+.pitem-head{
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.pitem-title{
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  margin-top: 4px;
+}
+
+.pitem-meta{
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.pitem-meta .tag{
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+}
+
+.pitem-meta .date{
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.pitem-desc{
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.35;
+}
+
+.projects-map #map{
+  height: 520px;
+}
+
+/* Leaflet popup’ı güzelleştir */
+.leaflet-popup-content{
+  margin: 10px 12px;
+}
+
+.pp-top{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.pp-badge{
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+}
+
+.pp-date{
+  color: var(--muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.pp-title{
+  font-weight: 900;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.pp-desc{
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+/* Mobil uyum */
+@media (max-width: 900px){
+  .projects-layout{
+    grid-template-columns: 1fr;
+  }
+  .projects-map #map{
+    height: 440px;
+  }
+}
+
+/* Projeler üst listeyi daha estetik yap */
+.project-ul{
+  margin-top: 10px;
+  display: grid;
+  gap: 10px;
+}
+
+.project-ul li{
+  background: linear-gradient(180deg, #ffffff, #fbfdff);
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 12px 14px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.04);
+  line-height: 1.45;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.project-ul li:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(0,0,0,.08);
+}
+
+.project-ul li strong{
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #eef2ff;
+  border: 1px solid #e0e7ff;
+  margin-right: 6px;
+}
+
+
+/* Proje kartlarını daha zarif yap */
+.pitem-title{
+  font-weight: 600;      /* 700 ise düşürdük */
+  font-size: 16px;
+}
+
+.pitem-meta{
+  font-weight: 400;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.pitem-desc{
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+/* Haritadaki popup yazılarını daha zarif yap */
+.pp-title{
+  font-weight: 600;   /* 900/800 ise düşür */
+  font-size: 15px;
+  letter-spacing: -0.2px;
+}
+
+.pp-desc{
+  font-weight: 400;
+  font-size: 13.5px;
+  line-height: 1.45;
+  opacity: 0.88;
+}
+
+.pp-date{
+  font-weight: 400;
+  font-size: 12.5px;
+  opacity: 0.8;
+}
+
+.pp-badge{
+  font-weight: 500;
+  font-size: 12px;
+}
+
+/* Projeler başlığı turuncu */
+section.card h2{
+  color: #2f2f2f;
+}
+
+/* Tarih rozetini daha minimal turuncu yap */
+.project-ul li strong{
+  background: transparent;
+  color: var(--accent);
+  border: none;
+  font-weight: 600;
+}
+
+.project-ul{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 10px;
+  padding-left: 0;
+}
+
+.project-ul li{
+  list-style: none;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  position: relative;
+  padding-left: 18px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Turuncu minimal bullet */
+.project-ul li::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+/* Yatay sayfa: sol bullet, sağ harita büyük */
+.page-layout{
+  display: grid;
+  grid-template-columns: 0.65fr 1.35fr; /* sağ taraf daha geniş */
+  gap: 14px;
+  align-items: start;
+}
+
+/* Sağ blok scroll’da güzel dursun */
+.page-right{
+  position: sticky;
+  top: 18px;
+}
+
+/* Harita daha büyük */
+.page-right .projects-map #map{
+  height: 620px;
+}
+
+/* Mobilde alt alta */
+@media (max-width: 980px){
+  .page-layout{
+    grid-template-columns: 1fr;
+  }
+  .page-right{
+    position: static;
+  }
+  .page-right .projects-map #map{
+    height: 460px;
+  }
+}
+
+.page-layout{
+  display: grid;
+  grid-template-columns: 0.45fr 1.55fr; /* sağ taraf çok daha büyük */
+  gap: 18px;
+}
+
+.page-right .projects-map #map{
+  height: 720px; /* büyük büyük */
+}
+
+.project-title{
+  font-weight: 500;
+}
+
+.project-role{
+  margin-top: 6px;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.project-role span{
+  font-weight: 600;
+  color: var(--accent);
+  margin-right: 6px;
+}
+
+
+/* Proje başlığı */
+.project-title{
+  font-weight: 700;       /* kalın */
+  color: #4b5563;         /* orta gri */
+  margin-bottom: 6px;
+}
+
+/* Sorumluluk metni */
+.project-role{
+  margin-top: 4px;
+  font-size: 14px;
+  color: #2f2f2f;         /* koyu gri */
+  line-height: 1.6;
+}
+
+/* "Sorumluluklar:" kelimesi */
+.project-role span{
+  font-weight: 700;       /* kalın */
+  color: #374151;         /* koyu gri ama siyah değil */
+  margin-right: 6px;
+}
+
+.project-ul li:hover{
+  transform: translateY(-4px);
+  box-shadow:
+    0 6px 18px rgba(0,0,0,.08),
+    0 0 0 2px rgba(234,88,12,.15);
+}
+
+.projects-panel .pitem{
+  transition: all .25s ease;
+}
+
+.projects-panel .pitem:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(234, 88, 12, 0.25);
+}
+
+/* İletişim Formu */
+.contact-form{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label{
+  font-weight: 600;
+  color: #374151;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea{
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-family: inherit;
+  font-size: 14px;
+  transition: all .2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.15);
+}
+
+.form-btn{
+  margin-top: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.form-btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(234, 88, 12, 0.3);
+}
